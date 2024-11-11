@@ -1,4 +1,4 @@
-#!/bin/sh
+# !/bin/sh
 # Shadowsocks scripted, xjasonlyu/tun2socks, bird2 based installer for OpenWRT (RAM).
 # https://github.com/1andrevich/outline-bgp-install-wrt
 echo 'Starting Shadowsocks + Antifilter BGP OpenWRT install to RAM script'
