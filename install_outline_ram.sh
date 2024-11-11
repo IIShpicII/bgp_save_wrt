@@ -333,7 +333,7 @@ else
     exit 1
 fi
 echo 'Waiting for bird2 to connect to Antifilter.download BGP'
-sleep 15
+sleep 30
 # Check the number of 'Import updates' from the bird2 show protocols
 import_updates=$(birdc show protocols all antifilter | grep 'Import updates' | awk '{print $3}')
 sleep 1
