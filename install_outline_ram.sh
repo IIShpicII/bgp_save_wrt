@@ -220,7 +220,8 @@ service_started() {
 
     while [ "\$attempts" -lt "\$max_attempts" ]; do
         if ip link show tun1 | grep -q "tun1"; then
-            ip route add 45.154.73.71 dev tun1
+#            ip route add 45.154.73.71 dev tun1
+            ip route add 165.22.127.20 dev tun1
             echo -e '\033[0;32m Route to Antifilter BGP server through Shadowsocks added \033[0m'
             return 0  # Exit the function successfully
         else
@@ -248,7 +249,8 @@ shutdown() {
 stop_service() {
     service_stop /tmp/tun2socks
     ip route del "$OUTLINEIP" via "$DEFGW" #Removes route to OUTLINE Server
-	ip route del 45.154.73.71 dev tun1
+    	ip route del 165.22.127.207 dev tun1
+#	ip route del 45.154.73.71 dev tun1
 	echo 'route to Antifilter BGP server through Shadowsocks deleted'
     echo "tun2socks has stopped!"
 }
@@ -316,7 +318,8 @@ protocol bgp antifilter {
         export none;
     };
     local as $ASN;
-    neighbor 45.154.73.71 as 65432;
+#    neighbor 45.154.73.71 as 65432;    
+    neighbor 165.22.127.207 as 65412;
     multihop;
     hold time 240;
 }
